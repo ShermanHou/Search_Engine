@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+    <style>
+      body{
+        margin-left:100px;
+        margin-right:600px;
+        font-family:"STXihei";
+        background-repeat: no-repeat;
+       
+        background-size: cover;
+       
+      }
+      * {
+        box-sizing: border-box;  /*宽度和高度会包括内边距和边框*/
+    }
+    div.search {
+      padding: 30px 0;
+      opacity: 0.66;
+  }
+    form {                        /*上下位置*/  
+        position: relative;
+        width: 110%;
+        margin: -15px 20px;  /*上下位置*/
+        margin-left:-10px;
+    }
+    input,button {
+        border: none;   /*无边框样式；元素的总宽度和高度包括边框的宽度 */
+        outline: none;  /*无轮廓样式；轮廓是在元素周围绘制的一条线，在边框之外并且可能与其他内容重叠，以凸显元素，元素的总宽度和高度不受轮廓线宽度的影响。*/
+    }
+
+    .search input {
+        width: 100%;
+        height: 52px;
+        padding-left: 13px;
+        border: 2px solid white;
+        border-radius: 100px;   /*border-radius 属性用于向元素添加圆角边框：*/
+        background: white;  /*背景白*/
+        box-shadow: 1px 1px 3px 2px #ccccf5; 
+    }
+    .search button {
+        height: 52px;
+        width: 42px;
+        cursor: pointer;  /*cursor属性定义了鼠标指针放在一个元素边界范围内时所用的光标形状*/
+        position: absolute;
+        background: white;
+        border-radius: 0 100px 100px 0;
+        width: 60px;
+        right: 20px;
+        margin: -52px;
+        box-shadow: 1px 1px 3px 2px #d9d9f7; 
+        background-image: url('https://www.w3schools.com/css/searchicon.png');
+          background-repeat: no-repeat;
+          _filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled='true', sizingMethod='scale', src="https://www.w3schools.com/css/searchicon.png");
+          _background:none;
+         background-position: 17px,4px
+    }
+    .search button:hover {
+      border:1.5px solid white;  /*点击搜索按钮时的背景颜色*/
+    }
+  
+    /* 在<button>元素后面插入内容，并设置所插入内容的样式： */
+
+    a{color:#00008B;
+      font-family:"STKaiti";
+      border-radius: 100px;
+      font-size:25px;
+      font-weight:bolder;
+      text-decoration:none;
+      box-shadow: 1px 1px 90px 0.5px Lavender ; 
+      
+    }   
+    a:hover{ color:DarkMagenta ;
+      text-decoration: underline;
+      box-shadow: 1px 1px 10px 6px Lavender  ; 
+    }
+    a:visited{ color:#570861 ;
+      text-decoration: underline;
+    }
+    
+    .search button:before {
+       
+      font-size: 13px;
+      /*插入的内容content: ;"搜索"*/
+     /*插入内容的字体大小*/
+    /*插入内容的字体颜色#F9F0DA color: ;  */
+}
+  p.titles{
+   
+  }
+p.key{
+  width : 100%;
+  color:black;
+  box-shadow: 1px 1px 60px 10px Thistle ; 
+  font-style:YouYuan;
+}
+nobr.bkey{
+  color:black;
+  font-size:20px;
+  box-shadow: 1px 1px 150px 5px white ; 
+  font-style:YouYuan;
+}
+p.error{
+  color:#00008B;
+      font-family:"YouYuan";
+      border-radius: 100px;
+      font-size:25px;
+      font-weight:bolder;
+      text-decoration:none;
+      box-shadow: 1px 1px 200px 0.5px Lavender ; 
+      text-align-last: center;
+      box-shadow: 1px 1px 90px 10px Lavender ; 
+}
+    </style>
+  </head>
+
+  <body background = static/image/2.jpg>
+    
+      <div class="search">
+      <form action="query" method="get">
+          <br>
+        <div>
+          <input type="text" id="keyword"  name='key' autocomplete="on" placeholder={{key}}>
+        </div>
+        <div>
+          <button type="submit"></button>
+        </div>
+      </form>
+    </div>
+        
+    
+   
+
+    <div>
+    
+          <div>
+            <br>
+            <br>
+            <br>
+            {% if too_long%}
+            <p class='error'>抱歉，Search Engine的查询限制有效词在30个以内,您的输入过长
+              <br>
+              <br>
+              请再试试 :)
+             </p>
+             {%else%}
+       <p class='error'>抱歉，您未输入有效检索词
+        <br>
+        <br>
+        请再试试 :)
+       </p>
+       {%endif%}
+          </div>  
+    </div>
+  </body>
+</html>
